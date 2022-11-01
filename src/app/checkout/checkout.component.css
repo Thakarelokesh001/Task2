@@ -1,0 +1,33 @@
+.cardss{
+    margin-top: 25px;
+}
+
+.btn-tot{
+    text-align:center ;
+    margin-top:20px; 
+    float:right;
+}
+
+ul {
+    list-style-type: none;
+    margin-left: 10;
+    padding: 0;
+  }
+  li {
+    display: inline;
+  }
+
+  .fon{
+    
+    font-size: 1.17em;
+    margin-top: 10px;
+    margin-bottom: 1em;
+    margin-left: 10px;
+    margin-right: 0;
+    font-weight: bold;
+  }
+
+  .flt{
+    float: right;
+    margin-top: 0px;
+  }

@@ -1,0 +1,34 @@
+
+
+<ul>
+    <li class="fon">Fake Shop</li>
+    <div *ngIf = "checkOutData">
+        <button type="button" class="btn btn-danger btn-lg flt" routerLink="/buy"  (click)="onSelected(checkOutData)">Buy</button>
+    </div>
+  </ul>
+    
+    <div class="container">
+    <div class="row cardss">
+        <div  style="width: 300px;" *ngFor="let content of checkOutData">
+            <div class="card">
+                <div class="col">
+            <img src="assets/chair.png">
+            <div class="card-body text-center">
+                <h5 class="card-title">{{content.title}}</h5>
+                <span>{{content.price | currency :'INR'}} </span>
+                <p class="card-text">{{content.description}}</p>
+                <p class="card-text">{{content.category}}</p>
+                <!-- <input type="checkbox" ng-model="check" ng-change="checkAll(check)" ng-true-value="YES" ng-false-value="NO"/> -->
+            </div>
+        </div>
+        </div>
+        </div>
+        </div>
+    </div>
+    <div class="container align-items-center btn-tot" >
+        <div *ngIf = "checkOutData">
+            <button type="button" class="btn btn-danger btn-lg" routerLink="/buy"  (click)="onSelected(checkOutData)">Buy</button>
+        </div>
+    <h2> Total Amount: {{totalAmount  | currency:'INR'}}</h2></div>
+
+    <router-outlet> </router-outlet>

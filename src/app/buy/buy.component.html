@@ -1,0 +1,11 @@
+ <h2>Fake Shop</h2>
+ <div class="container" style="text-align:center;margin-top:10em">
+ <div *ngFor="let content of buyArray">
+        <h2>Congratulations for buying {{content.length}} Products</h2>
+        <h2>Your TotalAmount is {{totalAmount}}</h2>
+        <button type="button" routerLink="/">Go to Home</button>
+    </div>
+  </div>
+    <!-- <button type="button" (click)="handleBuy()">Display Price</button> -->
+    <router-outlet></router-outlet>
+   
