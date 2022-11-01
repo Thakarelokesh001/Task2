@@ -9,6 +9,7 @@ export class DataService {
   private _checkOutData:Data[]=[]
   constructor(private http: HttpClient) {
   }
+  
   // https://stackoverflow.com/questions/47206924/angular-5-service-to-read-local-json-file
 public getData():Observable<Data[]>{
   return this.http.get<Data[]>('assets/data.json')
@@ -16,7 +17,7 @@ public getData():Observable<Data[]>{
 }
   set checkOutData(arg){
      this._checkOutData = arg
-    // console.log(this._checkOutData)
+    
   }
 
   get checkOutData(){

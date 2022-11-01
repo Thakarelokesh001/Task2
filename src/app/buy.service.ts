@@ -10,7 +10,6 @@ private _buyData:any=[]
 
   set buyData(arg){
     this._buyData = arg
-   console.log(this._buyData)
  }
 
  get buyData(){

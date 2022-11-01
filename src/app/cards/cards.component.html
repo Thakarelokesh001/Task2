@@ -1,37 +1,19 @@
-  <div>
-    <div class="row">
-        <div class="d-flex justify-content-between align-items-center">
-        <div  style="width: 300px;" *ngFor="let content of data">
-            <div class="card" *ngIf = "selectedCategory === content.category">
-                <div class="col">
-            <img src="assets/chair.png">
-            <div class="card-body text-center">
-                <h5 class="card-title">{{content.title}}</h5>
-                <span>{{content.price | currency :'INR'}} </span>
-                <p class="card-text">{{content.description}}</p>
-               
-                <p class="card-text">{{content.category}}</p>
-                <button type="button" class="btn btn-success"  (click)="addToCart(content)">Add to Cart</button>
+<div class="row">
+        <div class="col-6" *ngFor="let content of data">
+            <div *ngIf = "selectedCategory === content.category || selectedCategory === 'All Categories' || selectedCategory === '';">
+        <div class="card ">
+            <div *ngIf="content.category === 'Chair';else tableBlock">
+                <img src="assets/chair.png" alt="Chair" style="width:100%">
             </div>
-        </div>
-        </div>
-        </div>
+            <ng-template #tableBlock>
+                <img src="assets/table.jpeg" alt="Table" style="width:100%">
+            </ng-template>
+            <h3>{{content.title}}</h3>
+            <p class="price">{{content.price  | currency:'INR'}}</p>
+            <p><span>{{content.description}}</span></p>
+            <p> Category : {{content.category}}</p>
+           <p> <button type="button"  (click)="addToCart(content)">Add to Cart</button></p>
+          </div>
         </div>
         </div>
     </div>
-        <div class="row" >
-            <div class="d-flex justify-content-between align-items-center ">
-            <div  style="width: 300px;" *ngFor="let content of data">
-                <div class="card" *ngIf = "!selectedCategory">
-                <img src="assets/chair.png">
-                <div class="card-body text-center">
-                    <h5 class="card-title">{{content.title}}</h5>
-                    <span>{{content.price | currency :'INR'}} </span>
-                    <p class="card-text">{{content.description}}</p>
-                    <p class="card-text">{{content.category}}</p>
-                    <button type="button" class="btn btn-success" (click)="addToCart(content)">Add to Cart</button>
-                </div>
-            </div>
-            </div>
-            </div>
-        </div>

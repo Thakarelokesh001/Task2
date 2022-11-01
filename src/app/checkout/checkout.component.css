@@ -1,11 +1,9 @@
-.cardss{
-    margin-top: 25px;
-}
 
 .btn-tot{
     text-align:center ;
     margin-top:20px; 
     float:right;
+    margin-right: 5em;
 }
 
 ul {
@@ -30,4 +28,24 @@ ul {
   .flt{
     float: right;
     margin-top: 0px;
+    
   }
+
+  .card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2);
+    max-width: 300px;
+    margin: auto;
+    text-align: center;
+    font-family: arial;
+    margin-top: 2em;
+  }
+  
+  .price {
+    color: green;
+    font-size: 22px;
+  }
+  
+  p>span{
+    font-weight:bold;
+  }
+

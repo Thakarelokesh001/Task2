@@ -1,4 +1,5 @@
 import { Component, DoCheck, Input, OnChanges, OnInit, Output } from '@angular/core';
+import { Router } from '@angular/router';
 import { Data } from 'src/assets/data-interface';
 import { BuyService } from '../buy.service';
 
@@ -9,24 +10,21 @@ import { BuyService } from '../buy.service';
 })
 export class BuyComponent implements DoCheck,OnInit {
 buyArray:any=[]
-
+lengthOfbuyArray:number=0
  totalAmount:number=0
  i:number=0
-constructor(private buyService:BuyService){}
+constructor(private buyService:BuyService,private route:Router){}
 
 ngOnInit(){
-  this.buyArray = this.buyService.buyData
   
 }
   ngDoCheck(){
- 
-  for(let data of this.buyArray){
-    console.log(data[0].price)
-     for(;this.i<data.length;this.i++){
-    this.totalAmount = this.totalAmount + data[this.i].price
-    console.log(this.totalAmount)
-   
-  }
+    this.buyArray = this.buyService.buyData
+    console.log(this.buyArray)
+    this.lengthOfbuyArray = this.buyArray.length
+     for(;this.i<this.buyArray.length;this.i++){
+    this.totalAmount = this.totalAmount + this.buyArray[this.i].price
+  
   }
 }
 

@@ -18,20 +18,10 @@ export class SidenavComponent implements OnInit {
   }
   categoriesProduct(category:any)
   {
-    console.log(this.categories[1])
-  //  console.log(this.categories[0])
-    if(this.categories[0] === category){
-      console.log("Display All")
-      this.categorySelected = category
-    }
-    else if(this.categories[1] === category){
-      console.log("Display Table")
-      this.categorySelected = category
-    }
-    else if(this.categories[2] === category){
-      console.log("Display Chair")
-      this.categorySelected = category
-    }
+ for(let i=0;i<this.countVariable;i++){
+  if(this.categories[i] === category){
+    this.categorySelected = category
   }
-
+ }
+  }
 }

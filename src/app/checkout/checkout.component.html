@@ -1,34 +1,32 @@
+<div class="container">
+
+    <ul>
+      <li class="fon">Fake Shop</li>
+      <button type="button" class="btn btn-danger btn-lg flt" [disabled]="!buyActive"  (click)="onSelected()">Buy</button>
+    </ul>
 
 
-<ul>
-    <li class="fon">Fake Shop</li>
-    <div *ngIf = "checkOutData">
-        <button type="button" class="btn btn-danger btn-lg flt" routerLink="/buy"  (click)="onSelected(checkOutData)">Buy</button>
-    </div>
-  </ul>
-    
-    <div class="container">
-    <div class="row cardss">
-        <div  style="width: 300px;" *ngFor="let content of checkOutData">
-            <div class="card">
-                <div class="col">
-            <img src="assets/chair.png">
-            <div class="card-body text-center">
-                <h5 class="card-title">{{content.title}}</h5>
-                <span>{{content.price | currency :'INR'}} </span>
-                <p class="card-text">{{content.description}}</p>
-                <p class="card-text">{{content.category}}</p>
-                <!-- <input type="checkbox" ng-model="check" ng-change="checkAll(check)" ng-true-value="YES" ng-false-value="NO"/> -->
+    <div class="row">
+        <div class="col-3" *ngFor="let content of checkOutData">
+        
+        <div class="card">
+            <div *ngIf="content.category === 'Chair';else tableBlock">
+                <img src="assets/chair.png" alt="Chair" style="width:100%">
             </div>
+            <ng-template #tableBlock>
+                <img src="assets/table.jpeg" alt="Table" style="width:100%">
+            </ng-template>
+            <h3>{{content.title}}</h3>
+            <p class="price">{{content.price  | currency:'INR'}}</p>
+            <p><span>{{content.description}}</span></p>
+            <input  (change)="isChecked(content)" #mycheckbox type="checkbox">
+            <!-- <input type="checkbox" [value]="content.id" [checked]="isChecked" (change)="onChecked($event)"> -->
+          </div>
         </div>
         </div>
-        </div>
-        </div>
-    </div>
-    <div class="container align-items-center btn-tot" >
-        <div *ngIf = "checkOutData">
-            <button type="button" class="btn btn-danger btn-lg" routerLink="/buy"  (click)="onSelected(checkOutData)">Buy</button>
-        </div>
+ 
+    <div class="container align-items-center btn-tot">
+            <button type="button" class="btn btn-danger btn-lg" [disabled]="!buyActive" routerLink="/buy"  (click)="onSelected()" >Buy</button>
     <h2> Total Amount: {{totalAmount  | currency:'INR'}}</h2></div>
 
-    <router-outlet> </router-outlet>
+</div>

@@ -17,14 +17,14 @@
       "id": 3,
       "price": 99.45,
       "title": "Heading 3",
-      "description": "Strong and Scalable and Heavy",
+      "description": "Scalable and Heavy",
       "category": "Chair"
     },
     {
       "id": 4,
       "price": 99,
       "title": "Heading 4",
-      "description": "Strong and Scalable and Heavy",
+      "description": "Scalable and Heavy",
       "category": "Chair"
     }
   ]

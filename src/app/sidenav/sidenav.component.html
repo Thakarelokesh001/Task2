@@ -1,16 +1,12 @@
-<div class="container">
-  <div class="row">
-    <div class="col">
-    <div class="side-nav" >
-        <ul *ngFor="let category of categories">
-          <a (click)="categoriesProduct(category)"><li class="active">{{ category }}</li></a>
-        </ul>
+<div class="row">
+    <div class="card">
+      <div *ngFor="let category of categories">
+        <a (click)="categoriesProduct(category)"><p>{{ category }}</p></a>
+      </div> 
+      </div>
 
-    </div>
-  </div>
   <div class="col">
     <app-cards [selectedCategory]="categorySelected"></app-cards>
   </div>
-  </div>
-</div>
-
+    </div>
+    
