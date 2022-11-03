@@ -8,16 +8,13 @@ import { BuyService } from '../buy.service';
   templateUrl: './buy.component.html',
   styleUrls: ['./buy.component.css']
 })
-export class BuyComponent implements DoCheck,OnInit {
+export class BuyComponent implements DoCheck {
 buyArray:any=[]
 lengthOfbuyArray:number=0
  totalAmount:number=0
  i:number=0
-constructor(private buyService:BuyService,private route:Router){}
+constructor(private buyService:BuyService,private router:Router){}
 
-ngOnInit(){
-  
-}
   ngDoCheck(){
     this.buyArray = this.buyService.buyData
     console.log(this.buyArray)
@@ -26,6 +23,9 @@ ngOnInit(){
     this.totalAmount = this.totalAmount + this.buyArray[this.i].price
   
   }
+}
+goToHome(){
+  this.router.navigate(['/'])
 }
 
 }

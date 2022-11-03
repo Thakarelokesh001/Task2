@@ -3,7 +3,7 @@
  <div *ngIf="buyArray">
         <h2>Congratulations for buying {{lengthOfbuyArray}} Products</h2>
         <h2>Your TotalAmount is {{totalAmount | currency:'INR'}}</h2>
-        <button type="button"  routerLink="/">Go to Home</button>
+        <button type="button"  (click)="goToHome()">Go to Home</button>
     </div>
   </div>
    

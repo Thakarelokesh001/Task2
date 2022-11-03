@@ -20,6 +20,7 @@ export class CheckoutComponent implements OnInit{
   uniqueIds:any=[]
   i:number=0
   j:number=0
+  parentSelector:Boolean=false
 
   constructor(private dataservice:DataService,private router : Router,private buyService:BuyService) {
   }
@@ -27,47 +28,52 @@ export class CheckoutComponent implements OnInit{
   ngOnInit(){
       this.checkOutData = this.dataservice.checkOutData
 
-      // if(this.isValueChecked){
-      // this.buyArray.push(this.checkOutData)
-      //   this.buyActive=true
-      //     this.buyService.buyData =this.buyArray
-      //     console.log(this.buyService.buyData)
-      //     for(let data of this.buyService.buyData){
-      //   for(;this.i<data.length;this.i++)
-      //   {
-      //     this.totalAmount = this.totalAmount + data[this.i].price
-          
-      //   }
-      //   }}
+  //  this.isValueChecked=true
+  // if(this.isValueChecked){
+  //     for(;this.i<this.checkOutData.length;this.i++)
+  //     {
+  //       this.totalAmount = this.totalAmount + this.checkOutData[this.i].price
+  //     }}
   }
-
   isChecked(arg:any){
+    console.log(this.i)
     if(this.isValueChecked){
       this.buyActive=true
         this.buyArray.push(arg)
-        this.buyService.buyData =this.buyArray
-      for(;this.i<this.buyService.buyData.length;this.i++)
+       console.log(this.buyArray)
+       
+      for(;this.i<this.buyArray.length;this.i++)
       {
-        this.totalAmount = this.totalAmount + this.buyService.buyData[this.i].price
+        this.totalAmount = this.totalAmount + this.buyArray[this.i].price
       }
+      console.log(this.i)
+      this.buyService.buyData =this.buyArray 
     }
     if(!this.isValueChecked){
-      console.log(this.buyService.buyData)
+      this.i=0
       const id = arg.id
-      const indexFin = this.buyService.buyData.findIndex((e:any)=>{
+      const indexFin = this.buyArray.findIndex((e:any)=>{
           if(e.id === id)
           {
-            return id
+            return id;
           }
       })
-      this.totalAmount = this.totalAmount - this.buyService.buyData[indexFin].price
-      this.buyService.buyData.splice(indexFin,1)
-
+      if(indexFin !=-1){
+        this.totalAmount = this.totalAmount - this.buyService.buyData[indexFin].price
+        console.log('Unchecked',indexFin)
+        // if(this.totalAmount < 0){
+        //   this.totalAmount = 0
+        // }
+        
+      }
+      this.buyArray.splice(indexFin,1)
+      this.buyService.buyData = this.buyArray
+      console.log(this.buyService.buyData)
     }
-       
   }
   
  onSelected(){
   this.router.navigate(['/buy'])
  }
+
 }
