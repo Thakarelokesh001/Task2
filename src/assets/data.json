@@ -4,28 +4,32 @@
       "price": 99,
       "title": "Heading 1",
       "description": "Strong and Scalable",
-      "category": "Table"
+      "category": "Table",
+      "isChecked": false
     },
     {
       "id": 2,
       "price": 99.5,
       "title": "Heading 2",
       "description": "Strong and Scalable",
-      "category": "Table"
+      "category": "Table",
+      "isChecked": true
     },
     {
       "id": 3,
       "price": 99.45,
       "title": "Heading 3",
       "description": "Scalable and Heavy",
-      "category": "Chair"
+      "category": "Chair",
+      "isChecked": false
     },
     {
       "id": 4,
       "price": 99,
       "title": "Heading 4",
       "description": "Scalable and Heavy",
-      "category": "Chair"
+      "category": "Chair",
+      "isChecked": false
     }
   ]
   

@@ -19,8 +19,7 @@
             <h3>{{content.title}}</h3>
             <p class="price">{{content.price  | currency:'INR'}}</p>
             <p><span>{{content.description}}</span></p>
-            <input  (change)="isChecked(content)" #mycheckbox type="checkbox">
-            <!-- <input type="checkbox" [value]="content.id" [checked]="isChecked" (change)="onChecked($event)"> -->
+            <input type="checkbox"   [(ngModel)]="isValueChecked != isValueChecked" (change)="isChecked(content)">
           </div>
         </div>
         </div>
@@ -28,5 +27,4 @@
     <div class="container align-items-center btn-tot">
             <button type="button" class="btn btn-danger btn-lg" [disabled]="!buyActive" routerLink="/buy"  (click)="onSelected()" >Buy</button>
     <h2> Total Amount: {{totalAmount  | currency:'INR'}}</h2></div>
-
 </div>

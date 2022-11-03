@@ -20,6 +20,14 @@ a{
 p:hover{
   color: red;
 }
-p:active{
+a:active{
   color: blue;
+}
+a:focus{
+  color:blue
+}
+
+.isActive{
+  color: green;
+  text-decoration: underline;
 }

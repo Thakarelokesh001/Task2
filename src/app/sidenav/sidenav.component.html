@@ -1,7 +1,7 @@
 <div class="row">
     <div class="card">
       <div *ngFor="let category of categories">
-        <a (click)="categoriesProduct(category)"><p>{{ category }}</p></a>
+        <p><a  [class.isActive]="category === 'category'"  (click)="categoriesProduct(category)">{{ category }}</a></p>
       </div> 
       </div>
 
@@ -9,4 +9,3 @@
     <app-cards [selectedCategory]="categorySelected"></app-cards>
   </div>
     </div>
-    
