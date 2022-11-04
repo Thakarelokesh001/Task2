@@ -15,16 +15,12 @@ checkOutData:Data[]=[]
   ngOnInit(){
     this.dataservice.getData().subscribe((response)=>{
       this.data = response
-      // console.log(response)
     })
   }
 
 addToCart(info:any){
- 
   this.checkOutData.push(info)
-  // console.log(info,this.checkOutData)
   window.alert(`Product added succesfully ${info.title}`)
   this.dataservice.checkOutData=this.checkOutData
-  // console.log(this.selectedCategory)
 }
 }

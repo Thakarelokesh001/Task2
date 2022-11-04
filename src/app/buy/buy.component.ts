@@ -18,10 +18,11 @@ constructor(private buyService:BuyService,private router:Router){}
   ngDoCheck(){
     this.buyArray = this.buyService.buyData
     console.log(this.buyArray)
+    console.log(this.buyArray)
     this.lengthOfbuyArray = this.buyArray.length
      for(;this.i<this.buyArray.length;this.i++){
     this.totalAmount = this.totalAmount + this.buyArray[this.i].price
-  
+    
   }
 }
 goToHome(){
